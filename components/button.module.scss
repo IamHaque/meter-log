@@ -1,0 +1,59 @@
+.button {
+  width: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  color: hsl(0, 0%, 10%);
+  text-transform: uppercase;
+  font-size: clamp(0.75em, 1vmin + 0.75em, 1.25em);
+
+  & > a {
+    color: white;
+    display: block;
+    padding: 1em 2em;
+    border-radius: 1px;
+    outline: 2px solid transparent;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
+    transition: outline 300ms ease-in-out, background-color 300ms ease-in-out;
+    background-color: hsl(
+      var(--hue, 134),
+      var(--saturation, 66%),
+      var(--lightness, 70%)
+    );
+
+    &:focus,
+    &:active,
+    &:hover {
+      outline: 2px solid
+        hsl(
+          var(--hue, 134),
+          var(--saturation, 66%),
+          calc(var(--lightness, 70%) * 0.7)
+        );
+      background-color: hsl(
+        var(--hue, 134),
+        var(--saturation, 66%),
+        calc(var(--lightness, 70%) * 0.9)
+      );
+    }
+  }
+}
+
+.green {
+  --hue: 175;
+  --saturation: 62%;
+  --lightness: 34%;
+}
+
+.blue {
+  --hue: 213;
+  --saturation: 42%;
+  --lightness: 54%;
+}
+
+.pink {
+  --hue: 344;
+  --saturation: 51%;
+  --lightness: 53%;
+}

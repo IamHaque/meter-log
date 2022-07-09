@@ -1,0 +1,63 @@
+.container {
+  gap: 1em;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 2em 0;
+  max-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  & > * {
+    width: 100%;
+  }
+
+  & > *:last-child {
+    width: 80%;
+  }
+}
+
+.title {
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  font-size: clamp(1.5em, 10vw + 1em, 2.5em);
+}
+
+.logContainer {
+  flex: 1;
+  gap: 5px;
+  padding: 5px;
+  display: flex;
+  color: white;
+  overflow-y: scroll;
+  flex-direction: column;
+  background-color: hsl(0, 0%, 0%);
+
+  .logRow {
+    gap: 5px;
+    display: grid;
+    font-size: 0.9em;
+    grid-template-columns: 1fr 2fr 3fr;
+    background-color: hsla(0, 0%, 50%, 0.2);
+    font-family: "Courier New", Courier, monospace;
+
+    & > span {
+      padding: 5px 10px;
+
+      &:last-child {
+        text-align: end;
+      }
+    }
+  }
+
+  .noLogData {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
