@@ -5,8 +5,6 @@ import LinkButton from "../components/button";
 import styles from "../styles/viewMeterLogs.module.scss";
 
 export default function ViewMeterLogs({ logs }) {
-  logs = [];
-
   const localDate = (dt) => {
     const formattedDate = moment(dt).format("DD MMM, YY hh:MM a");
     return formattedDate.toString();
@@ -57,9 +55,6 @@ export async function getServerSideProps() {
   const response = await fetch(hostname + "/api/viewLogs", requestOptions);
   const data = await response.json();
 
-  console.log("Response Data");
-  console.log(data);
-
   if (!data.data) {
     return {
       props: {
@@ -74,9 +69,6 @@ export async function getServerSideProps() {
       recordedAt: log.createdAt,
     };
   });
-
-  console.log("Log Data");
-  console.log(logs);
 
   return {
     props: {
