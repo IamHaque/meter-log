@@ -48,6 +48,7 @@ export async function getServerSideProps() {
   const hostname = dev
     ? "http://localhost:3000"
     : "https://meter-log.herokuapp.com";
+  console.log(dev, hostname);
 
   const requestOptions = {
     method: "GET",

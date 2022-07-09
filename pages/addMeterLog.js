@@ -46,9 +46,7 @@ export default function AddMeterLog() {
       <p className={styles.title}>Add Meter Log</p>
 
       <div className={styles.inputWrapper}>
-        <label htmlFor="reading">
-          Enter meter reading {isBusy ? "Busy" : "Free"}
-        </label>
+        <label htmlFor="reading">Enter meter reading</label>
 
         <input
           min="0"
