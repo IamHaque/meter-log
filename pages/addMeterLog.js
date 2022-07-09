@@ -54,6 +54,7 @@ export default function AddMeterLog() {
           id="reading"
           type="number"
           value={reading}
+          autoComplete="off"
           onChange={handleInputReading}
         />
 

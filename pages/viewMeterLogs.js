@@ -48,7 +48,6 @@ export async function getServerSideProps() {
   const hostname = dev
     ? "http://localhost:3000"
     : "https://meter-log.herokuapp.com";
-  console.log(dev, hostname);
 
   const requestOptions = {
     method: "GET",
@@ -57,6 +56,9 @@ export async function getServerSideProps() {
 
   const response = await fetch(hostname + "/api/viewLogs", requestOptions);
   const data = await response.json();
+
+  console.log("Response Data");
+  console.log(data);
 
   if (!data.data) {
     return {
@@ -72,6 +74,9 @@ export async function getServerSideProps() {
       recordedAt: log.createdAt,
     };
   });
+
+  console.log("Log Data");
+  console.log(logs);
 
   return {
     props: {
