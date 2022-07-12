@@ -12,13 +12,10 @@
   & > * {
     width: 100%;
   }
-
-  & > *:last-child {
-    width: 80%;
-  }
 }
 
 .title {
+  display: none;
   font-weight: 700;
   text-align: center;
   letter-spacing: 1px;
@@ -28,30 +25,10 @@
 
 .logContainer {
   flex: 1;
-  gap: 5px;
-  padding: 5px;
+  gap: 1em;
   display: flex;
-  color: white;
   overflow-y: scroll;
   flex-direction: column;
-  background-color: hsl(0, 0%, 0%);
-
-  .logRow {
-    gap: 5px;
-    display: grid;
-    font-size: 0.9em;
-    grid-template-columns: 1fr 2fr 3fr;
-    background-color: hsla(0, 0%, 50%, 0.2);
-    font-family: "Courier New", Courier, monospace;
-
-    & > span {
-      padding: 5px 10px;
-
-      &:last-child {
-        text-align: end;
-      }
-    }
-  }
 
   .noLogData {
     width: 100%;

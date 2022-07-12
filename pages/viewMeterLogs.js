@@ -1,19 +1,9 @@
-import moment from "moment";
-
+import LogCard from "../components/logCard";
 import LinkButton from "../components/button";
 
 import styles from "../styles/viewMeterLogs.module.scss";
 
 export default function ViewMeterLogs({ logs }) {
-  const localDate = (dt) => {
-    const formattedDate = moment(dt).format("DD MMM, YY hh:MM a");
-    return formattedDate.toString();
-  };
-
-  const padIndex = (index) => {
-    return index < 10 ? "0" + index : index;
-  };
-
   return (
     <div className={styles.container}>
       <p className={styles.title}>View Meter Logs</p>
@@ -22,11 +12,13 @@ export default function ViewMeterLogs({ logs }) {
         {logs.length > 0 ? (
           logs.map((log, index) => {
             return (
-              <p className={styles.logRow} key={log.id}>
-                <span>{padIndex(index + 1)}</span>
-                <span>{log.reading} units</span>
-                <span>{localDate(log.recordedAt)}</span>
-              </p>
+              <LogCard
+                key={log.id}
+                index={index + 1}
+                reading={log.reading}
+                datetime={log.recordedAt}
+                readingDelta={log.readingDelta}
+              />
             );
           })
         ) : (
@@ -63,12 +55,22 @@ export async function getServerSideProps() {
     };
   }
 
-  const logs = data.data.map((log) => {
-    return {
+  const logs = [];
+  for (let i = data.data.length - 1; i >= 0; i--) {
+    const log = data.data[i];
+
+    let prevLog;
+    if (i !== data.data.length - 1) {
+      prevLog = data.data[i + 1];
+    }
+
+    const readingDelta = prevLog ? log.reading - prevLog.reading : 0;
+    logs.push({
+      readingDelta,
       reading: log.reading,
       recordedAt: log.createdAt,
-    };
-  });
+    });
+  }
 
   return {
     props: {
@@ -76,3 +78,22 @@ export async function getServerSideProps() {
     },
   };
 }
+
+const addLog = async (url) => {
+  // hostname + "/api/createLog"
+
+  for (let i = 0; i < 20; i++) {
+    let randomOffset = Math.floor(Math.random() * (20 - 5 + 1)) + 5;
+    randomOffset = Math.random() < 0.5 ? randomOffset : randomOffset * -1;
+    const reading = i * 50 + randomOffset;
+
+    const requestOptions = {
+      method: "POST",
+      body: JSON.stringify({ reading }),
+      headers: { "Content-Type": "application/json" },
+    };
+
+    const response = await fetch(url, requestOptions);
+    await response.json();
+  }
+};
