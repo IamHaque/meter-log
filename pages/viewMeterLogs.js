@@ -64,7 +64,9 @@ export async function getServerSideProps() {
       prevLog = data.data[i + 1];
     }
 
-    const readingDelta = prevLog ? log.reading - prevLog.reading : 0;
+    const readingDelta = prevLog
+      ? (log.reading - prevLog.reading).toFixed(1)
+      : 0;
     logs.push({
       readingDelta,
       reading: log.reading,
