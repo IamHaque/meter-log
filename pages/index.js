@@ -2,9 +2,6 @@ import { useState } from "react";
 
 import { useRouter } from "next/router";
 
-import { confirmAlert } from "react-confirm-alert";
-import "react-confirm-alert/src/react-confirm-alert.css";
-
 import Fab from "../components/fab";
 import Logs from "../components/logs";
 import NoLogs from "../components/noLogs";
@@ -29,6 +26,7 @@ export default function Home({ logs }) {
 
   const deleteLog = (id) => {
     if (isBusy) return;
+    return;
     setIsBusy(true);
 
     confirmAlert({
