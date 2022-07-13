@@ -1,11 +1,13 @@
-import Link from "next/link";
-
 import styles from "./button.module.scss";
 
-export default function LinkButton({ value, href, className, ...props }) {
+export default function Button({ disabled, value, clickHandler }) {
   return (
-    <div className={`${styles.button} ${styles[className]}`}>
-      <Link href={href}>{value}</Link>
-    </div>
+    <button
+      disabled={disabled}
+      className={styles.button}
+      onClick={clickHandler}
+    >
+      {disabled ? "..." : value}
+    </button>
   );
 }

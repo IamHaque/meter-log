@@ -2,7 +2,10 @@ import { useEffect } from "react";
 
 import Head from "next/head";
 
+import Header from "../components/header";
+
 import "../styles/globals.scss";
+import styles from "../styles/app.module.scss";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -24,7 +27,13 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
 
-      <Component {...pageProps} />
+      <div className={styles.container}>
+        <Header />
+
+        <div className={styles.main}>
+          <Component {...pageProps} />
+        </div>
+      </div>
     </>
   );
 }

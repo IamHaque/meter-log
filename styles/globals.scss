@@ -1,3 +1,7 @@
+@use "./utils" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -12,11 +16,19 @@ body {
   height: -webkit-fill-available;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+button,
+input {
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
 
 .negative {
@@ -27,21 +39,39 @@ a {
   color: #66bb6a;
 }
 
+.blue {
+  background-color: $blue;
+}
+
+.purple {
+  background-color: $purple;
+}
+
+.violet {
+  background-color: $violet;
+}
+
+.orange {
+  background-color: $orange;
+}
+
+.pink {
+  background-color: $pink;
+}
+
+.red {
+  background-color: $red;
+}
+
 #__next {
   width: 100vw;
   height: 100vh;
-  display: grid;
   user-select: none;
   height: calc(var(--vh, 100vh));
-  grid-template-columns: 1fr minmax(min-content, 480px) 1fr;
-
-  & > div {
-    grid-column-start: 2;
-  }
 }
 
-@media (max-width: 480px) {
+@media screen and (min-width: $mobile) {
   #__next {
-    grid-template-columns: 1em 1fr 1em;
+    background-color: $bg;
   }
 }

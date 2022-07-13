@@ -1,0 +1,27 @@
+@use "../styles/utils" as *;
+
+.fab {
+  left: 50%;
+  cursor: pointer;
+  text-align: center;
+  position: absolute;
+  bottom: $padding * 1.5;
+  transform: translateX(-50%);
+
+  & > a {
+    color: $white;
+    border-radius: 50%;
+    font-size: $padding * 1.5;
+    background-color: $accent;
+    box-shadow: 0px 2px 5px $shadow;
+    padding: $padding * 0.5 $padding * 0.8;
+    transition: background-color 200ms ease-in-out;
+
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: $accentDark;
+      box-shadow: 2px 4px 5px $shadow;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@use "../styles/utils" as *;
+
+.inputContainer {
+  gap: $padding * 0.5;
+  display: flex;
+  flex-direction: column;
+
+  .label {
+    font-size: 0.85em;
+  }
+
+  .input {
+    color: $black;
+    font-weight: 700;
+    font-size: 1.25em;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    border: 1.5px solid $black;
+    padding: $padding * 0.5 $padding * 0.4;
+  }
+
+  .hint {
+    color: $darkGray;
+    font-size: 0.75em;
+  }
+}
+
+.inputContainer.none {
+  .input {
+    border-color: $black;
+  }
+  .hint {
+    color: $darkGray;
+  }
+}
+
+.inputContainer.success {
+  .input {
+    border-color: $increment;
+  }
+  .hint {
+    color: $increment;
+  }
+}
+
+.inputContainer.failed {
+  .input {
+    border-color: $decrement;
+  }
+  .hint {
+    color: $decrement;
+  }
+}

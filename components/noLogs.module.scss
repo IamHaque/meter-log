@@ -1,0 +1,23 @@
+@use "../styles/utils" as *;
+
+.noLogs {
+  height: 100%;
+  gap: $padding;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 $padding $padding * 2 $padding;
+
+  & > .title {
+    font-size: 2em;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  & > .subtitle {
+    color: $gray;
+    max-width: 20em;
+  }
+}

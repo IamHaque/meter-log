@@ -9,11 +9,4 @@
 
 .workingArea {
   flex: 1;
-
-  gap: $padding;
-  display: flex;
-  padding: $padding;
-  align-items: stretch;
-  flex-direction: column;
-  justify-content: space-between;
 }
