@@ -66,6 +66,10 @@ export default function AddMeterLog({ id, existingLog }) {
     setIsBusy(false);
   };
 
+  const handleBackPress = () => {
+    router.replace("/");
+  };
+
   return (
     <>
       <p className={styles.subtext}>{id ? "Update log" : "Add log"}</p>
@@ -78,11 +82,19 @@ export default function AddMeterLog({ id, existingLog }) {
           label={"Enter the meter reading below"}
         />
 
-        <Button
-          disabled={isBusy}
-          clickHandler={handleSubmit}
-          value={id ? "Update Reading" : "Add Reading"}
-        />
+        <div className={styles.buttonsContainer}>
+          <Button
+            disabled={isBusy}
+            clickHandler={handleSubmit}
+            value={id ? "Update Reading" : "Add Reading"}
+          />
+
+          <Button
+            value={"Home"}
+            disabled={isBusy}
+            clickHandler={handleBackPress}
+          />
+        </div>
       </div>
     </>
   );

@@ -24,42 +24,31 @@ export default function Home({ logs }) {
     setIsBusy(false);
   };
 
-  const deleteLog = (id) => {
+  const deleteLog = async (id) => {
     if (isBusy) return;
-    return;
+
     setIsBusy(true);
 
-    confirmAlert({
-      title: "Delete reading?",
-      message: "Are you sure you want to delete this meter reading.",
-      buttons: [
-        {
-          label: "Delete",
-          onClick: async () => {
-            const requestOptions = {
-              method: "POST",
-              body: JSON.stringify({ id }),
-              headers: { "Content-Type": "application/json" },
-            };
+    const confirmBox = await window.confirm(
+      "Do you really want to delete this meter reading?"
+    );
 
-            const response = await fetch("/api/deleteLog", requestOptions);
-            const data = await response.json();
+    if (confirmBox === true) {
+      const requestOptions = {
+        method: "POST",
+        body: JSON.stringify({ id }),
+        headers: { "Content-Type": "application/json" },
+      };
 
-            if (data && data.status === "success") {
-              router.push("/");
-            }
+      const response = await fetch("/api/deleteLog", requestOptions);
+      const data = await response.json();
 
-            setIsBusy(false);
-          },
-        },
-        {
-          label: "Cancel",
-          onClick: () => {
-            setIsBusy(false);
-          },
-        },
-      ],
-    });
+      if (data && data.status === "success") {
+        router.push("/");
+      }
+    }
+
+    setIsBusy(false);
   };
 
   return (
