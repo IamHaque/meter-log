@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import Head from "next/head";
 
-import Header from "../components/header";
+import Header from "../components/header/header";
 
 import "../styles/globals.scss";
 import styles from "../styles/app.module.scss";

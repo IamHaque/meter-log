@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 import { useRouter } from "next/router";
 
-import Input from "../components/input";
-import Button from "../components/button";
+import Input from "../components/input/input";
+import Button from "../components/button/button";
 
 import styles from "../styles/addMeterLog.module.scss";
 

@@ -1,12 +1,13 @@
-@use "../styles/utils" as *;
+@use "../../styles/utils" as *;
 
 .logItem {
-  height: 50px;
+  min-height: 60px;
   display: flex;
   gap: $padding * 0.5;
   align-items: center;
-  padding: $padding * 0.5;
-  box-shadow: 0px 0px 3px $shadow;
+  padding: $padding * 0.5 $padding;
+  // box-shadow: 0px 0px 3px $shadow;
+  border-bottom: 1px solid $lightGray;
 }
 
 .dateContainer {
@@ -16,15 +17,15 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  width: calc(50px - $padding);
-  height: calc(50px - $padding);
+  width: calc(60px - $padding);
+  height: calc(60px - $padding);
 
   .date {
-    font-size: 0.9em;
+    font-weight: 700;
   }
 
   .month {
-    font-size: 0.6em;
+    font-size: 0.8em;
     text-transform: uppercase;
   }
 }
@@ -70,7 +71,7 @@
     border-radius: 3px;
     align-items: center;
     justify-content: center;
-    padding: $padding * 0.25;
+    padding: $padding * 0.75;
     transition: background-color 200ms ease-in-out;
 
     &:active,

@@ -2,9 +2,9 @@ import { useState } from "react";
 
 import { useRouter } from "next/router";
 
-import Fab from "../components/fab";
-import Logs from "../components/logs";
-import NoLogs from "../components/noLogs";
+import Fab from "../components/fab/fab";
+import Logs from "../components/logs/logs";
+import NoLogs from "../components/noLogs/noLogs";
 
 import styles from "../styles/index.module.scss";
 

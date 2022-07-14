@@ -1,11 +1,11 @@
-@use "../styles/utils" as *;
+@use "../../styles/utils" as *;
 
 .logsContainer {
   height: 65vh;
   display: flex;
   max-height: 65vh;
+  padding-top: 2px;
   overflow-y: scroll;
-  gap: $padding * 0.5;
   flex-direction: column;
-  padding: 2px $padding $padding * 2 $padding;
+  padding-bottom: $padding * 2;
 }

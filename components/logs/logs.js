@@ -1,4 +1,4 @@
-import LogItem from "../components/logItem";
+import LogItem from "../logItem/logItem";
 
 import styles from "./logs.module.scss";
 
