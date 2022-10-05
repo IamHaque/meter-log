@@ -7,7 +7,7 @@ const COLORS = ["blue", "purple", "violet", "orange", "pink", "red"];
 export default function Logs({ logs, editHandler, deleteHandler }) {
   return (
     <div className={styles.logsContainer}>
-      {logs.map((log, index) => (
+      {logs.reverse().map((log, index) => (
         <LogItem
           id={log.id}
           key={log.id}
